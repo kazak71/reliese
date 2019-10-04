@@ -25,7 +25,8 @@ return [
         |
         */
 
-        'path' => app_path('Models'),
+        // 'path' => app_path('Models'),
+        'path' => app_path(),
 
         /*
         |--------------------------------------------------------------------------
@@ -38,7 +39,7 @@ return [
         |
         */
 
-        'namespace' => 'App\Models',
+        'namespace' => 'App',
 
         /*
         |--------------------------------------------------------------------------
@@ -123,7 +124,7 @@ return [
         |
         */
 
-        'soft_deletes' => true,
+        'soft_deletes' => false,
 
         // 'soft_deletes' => [
         //     'enabled' => true,
@@ -170,7 +171,7 @@ return [
         |
         */
 
-        'base_files' => false,
+        'base_files' => true,
 
         /*
         |--------------------------------------------------------------------------
@@ -245,8 +246,11 @@ return [
         */
 
         'guarded' => [
-            // 'created_by', 'updated_by'
+            'created_by', 'updated_by'
         ],
+
+
+        'fillable' => true,
 
         /*
         |--------------------------------------------------------------------------
@@ -281,6 +285,7 @@ return [
 
         'except' => [
             'migrations',
+            'users',
         ],
 
         /*
@@ -319,7 +324,7 @@ return [
         |
         */
 
-        'lower_table_name_first' => false,
+        'lower_table_name_first' => true,
 
         /*
         |--------------------------------------------------------------------------

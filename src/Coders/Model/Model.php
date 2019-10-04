@@ -263,8 +263,7 @@ class Model
         // Track dates
         if ($cast == 'date') {
             $this->dates[] = $propertyName;
-        }
-        // Track attribute casts
+        } // Track attribute casts
         elseif ($cast != 'string') {
             $this->casts[$propertyName] = $cast;
         }
@@ -283,6 +282,7 @@ class Model
         if ($this->isFillable($column->name)) {
             $this->fillable[] = $propertyName;
         }
+
 
         $this->mutate($column->name);
 
@@ -952,8 +952,7 @@ class Model
      */
     public function getCasts()
     {
-        if (
-            array_key_exists($this->getPrimaryKey(), $this->casts) &&
+        if (array_key_exists($this->getPrimaryKey(), $this->casts) &&
             $this->autoincrement()
         ) {
             unset($this->casts[$this->getPrimaryKey()]);
@@ -1097,6 +1096,11 @@ class Model
      */
     public function isFillable($column)
     {
+
+        if ($this->config('fillable', false) == false) {
+            return false;
+        }
+
         $guarded = $this->config('guarded', []);
 
         if (! is_array($guarded)) {
