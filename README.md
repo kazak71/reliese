@@ -10,7 +10,7 @@ This package expects that you are using Laravel 5.1 or above.
 You will need to import the `reliese/laravel` package via composer:
 
 ```shell
-composer require reliese/laravel
+composer require kazak71/reliese
 ```
 
 ### Configuration
